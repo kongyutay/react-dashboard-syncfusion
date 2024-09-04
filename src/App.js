@@ -19,6 +19,7 @@ import {
   ColorPicker,
   ColorMapping,
   Editor,
+  Line
 } from "./pages";
 import "./App.css";
 // Until 49:00
@@ -72,7 +73,7 @@ const App = () => {
               {/* Apps */}
               <Route path="/kanban" element={<Kanban />} />
               <Route path="/editor" element={<Editor />} />
-              <Route path="/calendar" element={<Calender />} />
+              <Route path="/calendar" element={<Calendar />} />
               <Route path="/color-picker" element={<ColorPicker />} />
 
               {/* Charts */}
