@@ -21,11 +21,12 @@ import {
   Editor,
   Line
 } from "./pages";
+import { useStateContext } from './contexts/ContextProvider'
 import "./App.css";
 // Until 49:00
 
 const App = () => {
-  const activeMenu = true;
+  const { activeMenu } = useStateContext();
 
   return (
     <div>
