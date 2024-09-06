@@ -20,29 +20,36 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
       <span
         style={{ background: dotColor }}
         className="absolute inline-flex rounded-full h-2 w-2 right-2 top-2"
-      >
-        {icon}
-      </span>
+      />
+      {icon}
     </button>
   </TooltipComponent>
 );
 
 const Navbar = () => {
-  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick, screenSize, setScreenSize } = useStateContext();
-  useEffect(()=>{
-    const handleResize = ()=> setScreenSize(window.innerWidth);
-    window.addEventListener('resize', handleResize);
+  const {
+    activeMenu,
+    setActiveMenu,
+    isClicked,
+    setIsClicked,
+    handleClick,
+    screenSize,
+    setScreenSize,
+  } = useStateContext();
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+    window.addEventListener("resize", handleResize);
     handleResize();
-    return ()=>window.removeEventListener('resize', handleResize)
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(()=> {
-    if(screenSize <= 900) {
-      setActiveMenu(false)
+  useEffect(() => {
+    if (screenSize <= 900) {
+      setActiveMenu(false);
     } else {
-      setActiveMenu(true)
+      setActiveMenu(true);
     }
-  }, [screenSize])
+  }, [screenSize]);
   return (
     <div className="flex justify-between p-2 md:mx-6 relative">
       <NavButton
@@ -87,10 +94,10 @@ const Navbar = () => {
             <MdKeyboardArrowDown className="text-gray-400 text-14" />
           </div>
         </TooltipComponent>
-        {isClicked.cart && <Cart/>}
-        {isClicked.chat && <Chat/>}
-        {isClicked.notification && <Notification/>}
-        {isClicked.userProfile && <UserProfile/>}
+        {isClicked.cart && <Cart />}
+        {isClicked.chat && <Chat />}
+        {isClicked.notification && <Notification />}
+        {isClicked.userProfile && <UserProfile />}
       </div>
     </div>
   );
