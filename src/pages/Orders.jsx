@@ -7,6 +7,7 @@ import {
   Sort,
   ContextMenu,
   Filter,
+  Page,
   ExcelExport,
   PdfExport,
   Edit,
@@ -25,7 +26,7 @@ const Orders = () => {
             <ColumnDirective key={index} {...item} />
           ))}
         </ColumnsDirective>
-        <Inject services={[Resize, Sort, ContextMenu, Page, ExcelExport, Edit, PdfExport]} />
+        <Inject services={[Resize, Sort, ContextMenu, Filter, Page, ExcelExport, Edit, PdfExport]} />
       </GridComponent>
     </div>
   )
